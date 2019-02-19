@@ -56,9 +56,16 @@
     </Compile>
     <Compile Include="IAccount.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="PromptDialog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Saving_Account_Interface.cs" />
     <Compile Include="Saving_Account.cs" />
+    <Compile Include="ATM_Services.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ATM_Services.Designer.cs">
+      <DependentUpon>ATM_Services.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ATM.resx">
       <DependentUpon>ATM.cs</DependentUpon>
     </EmbeddedResource>
@@ -71,6 +78,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ATM_Services.resx">
+      <DependentUpon>ATM_Services.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

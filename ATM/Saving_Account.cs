@@ -3,11 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ATM
 {
     public class Saving_Account : Account
     {
+        public Saving_Account()
+        {
+
+        }
+        public Saving_Account(double x)
+        {
+            setBalance(x);
+        }
         public override void withdraw(double amount)
         {
             double maximum_amount = 5000;
@@ -15,17 +24,17 @@ namespace ATM
             string message;
             if (amount > getBalance())
             {
-                message = "Insufficient balance";
+                MessageBox.Show("Insufficient balance");
             }
             else if (withdraw_amount > maximum_amount)
             {
-                message = "You are not allowed to withdraw over RM" + maximum_amount;
+                MessageBox.Show("You are not allowed to withdraw over RM" + maximum_amount);
             }
             else
             {
-                message = "Dispensing money......";
+                MessageBox.Show("Dispensing money......");
                 setBalance(getBalance() - withdraw_amount);
-                
+                MessageBox.Show("Balance left: RM" + getBalance().ToString());
             }
 
         }
@@ -37,16 +46,17 @@ namespace ATM
             string message;
             if (amount > getBalance())
             {
-                message = "Insufficient balance";
+                MessageBox.Show("Insufficient balance");
             }
             else if(transfer_amount > maximum_amount)
             {
-                message = "You are not allowed to transfer over RM" + maximum_amount;
+                MessageBox.Show("You are not allowed to transfer over RM" + maximum_amount);
             }
             else
             {
-                message = "Transfering money......";
+                MessageBox.Show("Transfering money......");
                 setBalance(getBalance() - transfer_amount);
+                MessageBox.Show("Balance left: RM" + getBalance().ToString());
 
             }
 
