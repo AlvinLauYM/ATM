@@ -15,7 +15,7 @@ namespace ATM
 {
     public partial class ATM : Form
     {
-        Account account;
+       
         public ATM()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace ATM
             button1.Visible = false;
             button2.Visible = false;
             button6.Visible = true;
-            atM_Services1.account = new Saving_Account(7000);
+            atM_Services1.account = new Saving_Account_Interface(7000);
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace ATM
             button1.Visible = false;
             button2.Visible = false;
             button6.Visible = true;
-            atM_Services1.account = new Current_Account(7500);
+            atM_Services1.account = new Current_Account_Interface(7500);
         }
     }
 }

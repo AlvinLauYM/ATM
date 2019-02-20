@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ATM
 {
@@ -11,6 +12,11 @@ namespace ATM
         public int pin_number { get; set; }
         public double balance { get; set; }
 
+        public Saving_Account_Interface(){}
+        public Saving_Account_Interface(double x)
+        {
+            balance = x;
+        }
         public void withdraw(double amount)
         {
             double maximum_amount = 5000;
@@ -18,17 +24,17 @@ namespace ATM
             string message;
             if (amount > balance)
             {
-                message = "Insufficient balance";
+                MessageBox.Show("Insufficient balance");
             }
             else if (withdraw_amount > maximum_amount)
             {
-                message = "You are not allowed to withdraw over RM" + maximum_amount;
+                MessageBox.Show("You are not allowed to withdraw over RM" + maximum_amount);
             }
             else
             {
-                message = "Dispensing money......";
+                MessageBox.Show("Dispensing money......");
                 balance = balance - withdraw_amount;
-
+                MessageBox.Show("Balance left: RM" + balance.ToString());
             }
 
         }
@@ -40,16 +46,17 @@ namespace ATM
             string message;
             if (amount > balance)
             {
-                message = "Insufficient balance";
+                MessageBox.Show("Insufficient balance");
             }
             else if (transfer_amount > maximum_amount)
             {
-                message = "You are not allowed to transfer over RM" + maximum_amount;
+                MessageBox.Show("You are not allowed to transfer over RM" + maximum_amount);
             }
             else
             {
-                message = "Transfering money......";
+                MessageBox.Show("Transfering money......");
                 balance = balance - transfer_amount;
+                MessageBox.Show("Balance left: RM" + balance.ToString());
 
             }
 
@@ -57,17 +64,19 @@ namespace ATM
 
         public void Check_balance()
         {
-            string message = "Your balance : RM" + balance;
+            MessageBox.Show("Your balance : RM" + balance);
         }
 
         public void deposit(double amount)
         {
             balance = balance + amount;
+            MessageBox.Show("Balance : RM" + balance);
         }
 
         public void change_pin(int new_pin)
         {
             pin_number = new_pin;
+            MessageBox.Show(pin_number.ToString());
         }
     }
 }

@@ -12,7 +12,7 @@ namespace ATM
 {
     public partial class ATM_Services : UserControl
     {
-        public Account account { get; set; }
+        public IAccount account { get; set; }
         public ATM_Services()
         {
             InitializeComponent();
